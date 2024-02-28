@@ -1,23 +1,17 @@
-# docker-gs-ping
+# Workshop: Dockerized Go
 
-A simple Go server/microservice example for [Docker's Go Language Guide](https://docs.docker.com/language/golang/).
+This is my improvement after following the [Docker's Go Language Guide](https://docs.docker.com/language/golang/) originally made by [olliefr](https://www.linkedin.com/in/ofr/), where a simple Go server/microservice is dockerized.
 
-Notable features:
+## Features
 
-* Includes a [multi-stage `Dockerfile`](https://github.com/olliefr/docker-gs-ping/blob/main/Dockerfile.multistage).
-* Has a CI pipeline using GitHub Actions to run tests.
-* Has a CD pipeline using GitHub Actions to publish to Docker Hub.
+These were the features added to the original project:
 
-## Want _moar_?!
-
-There is a more advanced example in [olliefr/docker-gs-ping-roach](https://github.com/olliefr/docker-gs-ping-roach) using [CockroachDB](https://github.com/cockroachdb/cockroach).
-
-## Contributing
-
-This was written for an _introduction_ section of the Docker tutorial and as such it favours brevity and pedagogical clarity over robustness. 
-
-Thus, feedback is welcome, but please no nits or pedantry. Ain't nobody got time for that 🙃
+- multi-stage `Dockerfile`
+- Testing CI pipeline using GitHub Actions
+- CD pipeline using GitHub Actions to publish to Docker Hub
+- CockroachDB integration
+- Docker Compose for local development
 
 ## License
 
-[Apache-2.0 License](LICENSE)
+[Apache-2.0 License](./LICENSE)
