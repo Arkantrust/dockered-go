@@ -2,7 +2,7 @@
 
 # TODO: use 1.22.0-alpine3.19
 # Tested with 1.16-buster
-FROM golang:1.16-buster AS modules
+FROM golang:1.22.0-alpine3.19 AS modules
 
 WORKDIR /app
 
