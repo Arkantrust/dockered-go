@@ -1,0 +1,8 @@
+cockroachdb://arkan:JdLV82hO_DqS9jyiphouDQ@sharp-harbor-sao-pablo-1928.g8x.gcp-southamerica-east1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full
+
+docker run -it --rm -d \
+  --network mynet \
+  --name rest-server \
+  -p 80:8080 \
+  -e DATABASE_URL=cockroachdb://arkan:password@db:26257/go
+  arkantrust/docker-go:2.0.0
