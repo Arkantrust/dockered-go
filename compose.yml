@@ -1,0 +1,45 @@
+version: '3.8'
+name: 'roachgo'
+
+# https://docs.docker.com/compose/install/standalone/
+
+services:
+  messages-api:
+    depends_on:
+      - roach
+    build:
+      context: .
+    container_name: messages
+    hostname: messages
+    networks:
+      - go-roach-net
+    ports:
+      - 80:8080
+    environment:
+      - PGUSER=${PGUSER:-arkan}
+      - PGPASSWORD=${PGPASSWORD:?database password not set}
+      - PGHOST=${PGHOST:-db}
+      - PGPORT=${PGPORT:-26257}
+      - PGDATABASE=${PGDATABASE:-go}
+    deploy:
+      restart_policy:
+        condition: on-failure
+  roach:
+    image: cockroachdb/cockroach:latest-v20.1
+    container_name: roach
+    hostname: db
+    networks:
+      - go-roach-net
+    ports:
+      - 26257:26257
+      - 8080:8080
+    volumes:
+      - roach:/cockroach/cockroach-data
+    command: start-single-node --insecure
+
+volumes:
+  roach:
+
+networks:
+  go-roach-net:
+    driver: bridge
